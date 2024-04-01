@@ -13,7 +13,7 @@ pipeline {
         stage ('incremental version') {
          steps {
             script{
-             env.GIT_COMMIT_REV = sh "git log  | grep ^commit  |  awk '{print $2}' | cut -c -8"
+             env.GIT_COMMIT_REV = sh ("git log  | grep ^commit  |  awk '{print $2}' | cut -c -8")
             // def reponame = "samehpalas/demo-app"  //instead, value as an input from the customer as shown above
              def tag= "$GIT_COMMIT_REV-$BUILD_NUMBER" // BUILD_NUMBER of jenkins to increase image dynamically according to build number
              env.imagename = "samehpalas/test1:$GIT_COMMIT_REV"  // env.xx to be called from another stage
