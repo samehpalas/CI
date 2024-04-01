@@ -14,7 +14,7 @@ pipeline {
          steps {
             script{
                 
-             env.GIT_COMMIT_REV = sh ( script: 'git log  | grep ^commit  |  awk '{print $2}' | cut -c -8')
+             env.GIT_COMMIT_REV = sh (script: 'git log -n 1 --pretty=format:"%h"', returnStdout: true)
            //  env.GIT_COMMIT_REV = sh (git log  | grep ^commit  |  awk '{print $2}' | cut -c -8)
             // def reponame = "samehpalas/demo-app"  //instead, value as an input from the customer as shown above
              def tag= "$GIT_COMMIT_REV-$BUILD_NUMBER" // BUILD_NUMBER of jenkins to increase image dynamically according to build number
