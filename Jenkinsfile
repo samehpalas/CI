@@ -1,9 +1,9 @@
 pipeline {
     agent any
-    parameters {string(name: 'reponame', defaultValue: '', description: '') }
-    tools {
-        maven 'Maven'
-    }
+   // parameters {string(name: 'reponame', defaultValue: '', description: '') }
+    //tools {
+      //  maven 'Maven'
+    //}
     stages {
         stage('Clone repository') {  
          steps {
