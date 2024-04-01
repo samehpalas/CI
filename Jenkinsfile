@@ -8,6 +8,8 @@ pipeline {
         stage ('incremental version') {
          steps {
              script{
+                 git log  | grep ^commit  |  awk '{print $2}' | cut -c -8
+
             // def reponame = "samehpalas/demo-app"  //instead, value as an input from the customer as shown above
              def version = "0"
              def tag= "$version-$BUILD_NUMBER" // BUILD_NUMBER of jenkins to increase image dynamically according to build number
