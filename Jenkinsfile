@@ -2,7 +2,6 @@ pipeline {
     agent any
    // parameters {string(name: 'reponame', defaultValue: '', description: '') }
     //tools { 
-    
       //  maven 'Maven'
     //}
     stages {
